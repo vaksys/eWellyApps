@@ -13,9 +13,81 @@
 @end
 
 @implementation AppDelegate
+@synthesize databasePath;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+   
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    
+    CGRect tabbarFrame = tabBarController.tabBar.frame;
+    tabbarFrame.size.height += 120;
+    tabBarController.tabBar.frame = tabbarFrame;
+    
+    tabBarItem1.title = @"";
+    tabBarItem2.title = @"";
+    tabBarItem3.title = @"";
+    //tabBarItem4.title = @"Settings";
+    
+    databasePath=[[NSString alloc]init];
+    
+    tabBarItem1.selectedImage = [[UIImage imageNamed:@"menu1-hover.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    tabBarItem1.image = [[UIImage imageNamed:@"menu1.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+tabBarItem1.imageInsets = UIEdgeInsetsMake(6,0,-6,0);
+    
+    tabBarItem2.selectedImage = [[UIImage imageNamed:@"menu2-hover.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    tabBarItem2.image = [[UIImage imageNamed:@"menu2.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    tabBarItem2.imageInsets = UIEdgeInsetsMake(6,0,-6,0);
+
+    
+    
+    tabBarItem3.selectedImage = [[UIImage imageNamed:@"menu3-hover.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    tabBarItem3.image = [[UIImage imageNamed:@"menu3.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    tabBarItem3.imageInsets = UIEdgeInsetsMake(6,0,-6,0);
+
+    
+    tabBarItem4.selectedImage = [[UIImage imageNamed:@"menu4-hover.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    tabBarItem4.image = [[UIImage imageNamed:@"menu4.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    tabBarItem4.imageInsets = UIEdgeInsetsMake(6,0,-6,0);
+    
+    
+    [DBManager getSharedInstance];
+
+    
+    
+//    
+//    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"menu1-hover.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"menu1.png"]];
+//    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"menu2-hover.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"menu2.png"]];
+//    
+//    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"menu3-hover.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"menu3.png"]];
+//  [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"menu4-hover.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"menu4.png"]];
+//    UIImage* tabBarBackground = [UIImage imageNamed:@"menu3-hover.png"];
+//    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+//    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"menu4-hover.png"]];
+    
+    
+    
+//    
+//        [_window addSubview:_viewController.view];
+//        [_window makeKeyAndVisible];
+//        [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+//        _splashView=[[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//        _splashView.image = [UIImage imageNamed:@"Splash.png"];
+//        //[NSThread sleepForTimeInterval:2];
+//    
+//        [UIView transitionWithView:self.window duration:15.0f options:UIViewAnimationOptionTransitionNone animations:^(void){_splashView.alpha=0.0f;} completion:^(BOOL finished){[_splashView removeFromSuperview];}];
+//        [_window addSubview:_splashView];
+//        [_window bringSubviewToFront:_splashView];
+//        
+
+    
+    
+    
     // Override point for customization after application launch.
     return YES;
 }
